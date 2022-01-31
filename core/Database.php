@@ -2,9 +2,9 @@
 
 namespace Core;
 
-const DSN = "mysql:host=db;port=3306;dbname=coursphp";
-const DB_USER = "coursphp";
-const DB_PASSWORD = "coursphp";
+const DSN = "mysql:host=localhost;port=3306;dbname=bootcamp";
+const DB_USER = "root";
+const DB_PASSWORD = "";
 
 use Exception;
 use \PDO;

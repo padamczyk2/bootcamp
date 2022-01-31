@@ -12,54 +12,15 @@
     <script src="/assets/js/jquery-3.4.1.slim.min.js"></script>
     <script src="/assets/js/popper.min.js"></script>
     <!-- BOOTSTRAP -->
-
-    {% block title %}
-    <title>Bouc'inerie</title>
-    {% endblock %}
-    {% block head %}
-    {% endblock %}
 </head>
 <body>
-<header>
-    <div class="container d-flex flex-column justify-content-center">
-        {% block header %}
-        <div class="h1">La bouc'inerie
-            <small class="text-muted">La librairie favorite des ruminants</small>
-        </div>
-        {% endblock %}
-        <nav>
-            <ul class="list-unstyled d-flex justify-content-between ">
-                {% block nav %}
-                <li><a href="/book">Parcourir les livres</a></li>
-                {% if user %}
-                <li><a href="/book/add">Ajouter un livre</a></li>
-                {% if user.role == "admin" %}
-                <li><a href="/user">Gérer les utilisateurs</a></li>
-                {% endif %}
-                <li><a href="/auth/logout">Deconnexion</a> {{ user["displayName"] }}</li>
-                {% else %}
-                <li><a href="/auth/register">Inscription</a></li>
-                <li><a href="/auth/login">Connexion</a></li>
-                {% endif %}
-                {% endblock %}
-            </ul>
-        </nav>
-    </div>
-</header>
-<main>
-    {% block content %}
-    <p>Envie de machouiller des livres? Vous êtes au bon endroit.</p>
-    <p>Parcourez la liste des ouvrages disponibles, ou mettez les votres à disposition.</p>
-    {% endblock %}
-</main>
+    <h2>{{var}}</h2>
+    <table style="width: 30%;">
+        {% for user in users %}
+        <tr>
+            <td>{{ user.first_name }} {{ user.last_name }}</td>
+            <td>{{ user.email }}</td>
+        </tr>
+        {% endfor %}
+    </table>
 </body>
-<style>
-    li {
-        display: inline;
-    }
-
-    ul, li {
-        list-style: none;
-    }
-</style>
-</html>
