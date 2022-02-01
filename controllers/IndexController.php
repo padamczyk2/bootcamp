@@ -12,7 +12,7 @@ class IndexController
     {
         ViewLoader::getInstance()->render(
           'Layout/Layout.html',
-          ['var' => 'Users:', 'users' => self::getUsers()]
+          ['title' => 'Users:', 'users' => self::getUsers()]
         );
     }
 

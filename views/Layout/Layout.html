@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="fr">
+<html>
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
@@ -14,13 +14,18 @@
     <!-- BOOTSTRAP -->
 </head>
 <body>
-    <h2>{{var}}</h2>
-    <table style="width: 30%;">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12">
+                <p class="font-weight-bold">{{title}}</p>
+            </div>
+        </div>
         {% for user in users %}
-        <tr>
-            <td>{{ user.first_name }} {{ user.last_name }}</td>
-            <td>{{ user.email }}</td>
-        </tr>
+        <div class="row">
+            <div class="col-sm-1">{{ user.first_name }} {{ user.last_name }}</div>
+            <div class="col-sm-1"><a href="mailto:{{ user.email }}">{{ user.email }}</a></div>
+        </div>
         {% endfor %}
-    </table>
+
+    </div>
 </body>
