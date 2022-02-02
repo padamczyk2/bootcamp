@@ -30,7 +30,7 @@ class ViewLoader
 
     public function render(string $template, array $params)
     {
-        $params["user"] = $_SESSION["user"];
+        $params["user"] = $_SESSION["user"] ?? null;
         echo $this->twig->render($template, $params);
     }
 }

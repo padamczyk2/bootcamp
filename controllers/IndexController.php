@@ -16,7 +16,7 @@ class IndexController
         );
     }
 
-    public function getUsers(): array {
+    public static function getUsers(): array {
         $customersRepository = CustomersRepository::getInstance();
         return $customersRepository->findAll();
     }

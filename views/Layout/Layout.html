@@ -22,8 +22,8 @@
         </div>
         {% for user in users %}
         <div class="row">
-            <div class="col-sm-1">{{ user.first_name }} {{ user.last_name }}</div>
-            <div class="col-sm-1"><a href="mailto:{{ user.email }}">{{ user.email }}</a></div>
+            <div class="col-sm-2">{{ user.first_name }} {{ user.last_name }}</div>
+            <div class="col-sm-2"><a href="mailto:{{ user.email }}">{{ user.email }}</a></div>
         </div>
         {% endfor %}
 

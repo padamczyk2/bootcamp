@@ -2,9 +2,9 @@
 
 namespace Core;
 
-const DSN = "mysql:host=localhost;port=3306;dbname=bootcamp";
-const DB_USER = "root";
-const DB_PASSWORD = "";
+const DSN = "mysql:host=serwer2266263.home.pl;port=3306;dbname=35651204_octadecimal";
+const DB_USER = "35651204_octadecimal";
+const DB_PASSWORD = "8&Pa!?18";
 
 use Exception;
 use \PDO;
