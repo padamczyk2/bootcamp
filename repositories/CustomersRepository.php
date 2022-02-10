@@ -44,7 +44,7 @@ class CustomersRepository
     {
         $pdo = Database::getInstance();
 
-        $req = $pdo->prepare("SELECT * FROM customers");
+        $req = $pdo->prepare("SELECT first_name, last_name, email FROM customers");
         $req->execute();
         $res = $req->fetchAll();
         $customers = [];
