@@ -8,6 +8,9 @@ use Repositories\CustomersRepository;
 class IndexController
 {
 
+    /**
+     *
+     */
     public function getIndex(): void
     {
         ViewLoader::getInstance()->render(
@@ -16,9 +19,13 @@ class IndexController
         );
     }
 
-    public function postIndex(): void
+    /**
+     * @param  array  $data
+     */
+    public function postIndex(array $data): void
     {
-        echo print_r($_POST);
+        echo "<pre>";
+        print_r($data);
     }
 
     public static function getUsers(): array {
