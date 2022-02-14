@@ -5,7 +5,7 @@ namespace Models;
 class Customer
 {
 
-    public $id, $first_name, $last_name, $email;
+    public $id, $first_name, $last_name, $email, $phone;
 
     /**
      * @return mixed
@@ -16,7 +16,7 @@ class Customer
     }
 
     /**
-     * @param  mixed  $id
+     * @param mixed $id
      */
     public function setId($id): void
     {
@@ -32,7 +32,7 @@ class Customer
     }
 
     /**
-     * @param  mixed  $first_name
+     * @param mixed $first_name
      */
     public function setFirstName($first_name): void
     {
@@ -48,7 +48,7 @@ class Customer
     }
 
     /**
-     * @param  mixed  $last_name
+     * @param mixed $last_name
      */
     public function setLastName($last_name): void
     {
@@ -64,11 +64,26 @@ class Customer
     }
 
     /**
-     * @param  mixed  $email
+     * @param mixed $email
      */
     public function setEmail($email): void
     {
         $this->email = $email;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getPhone()
+    {
+        return $this->phone;
+    }
+
+    /**
+     * @param mixed $phone
+     */
+    public function setPhone($phone): void
+    {
+        $this->phone = $phone;
+    }
 }

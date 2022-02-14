@@ -5,6 +5,7 @@ namespace Repositories;
 
 use Core\Database;
 use Exception;
+use http\Client\Curl\User;
 use Models\Customer;
 
 class CustomersRepository
@@ -44,7 +45,7 @@ class CustomersRepository
     {
         $pdo = Database::getInstance();
 
-        $req = $pdo->prepare("SELECT first_name, last_name, email FROM customers");
+        $req = $pdo->prepare("SELECT first_name, last_name, email, phone FROM customers");
         $req->execute();
         $res = $req->fetchAll();
         $customers = [];
@@ -53,6 +54,7 @@ class CustomersRepository
             $customer->first_name = $row['first_name'];
             $customer->last_name = $row['last_name'];
             $customer->email = $row['email'];
+            $customer->phone = $row['phone'];
             array_push($customers, $customer);
         }
         return $customers;

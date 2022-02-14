@@ -1,5 +1,5 @@
 <!doctype html>
-<html>
+<html xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
@@ -14,18 +14,29 @@
     <!-- BOOTSTRAP -->
 </head>
 <body>
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-sm-12">
-                <p class="font-weight-bold">{{title}}</p>
-            </div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-12">
+            <p class="font-weight-bold">{{title}}</p>
         </div>
-        {% for user in users %}
-        <div class="row">
-            <div class="col-sm-2">{{ user.first_name }} {{ user.last_name }}</div>
-            <div class="col-sm-2"><a href="mailto:{{ user.email }}">{{ user.email }}</a></div>
-        </div>
-        {% endfor %}
-
     </div>
+    {% for user in users %}
+    <div class="row">
+        <div class="col-sm-2">{{ user.first_name }} {{ user.last_name }}</div>
+        <div class="col-sm-2"><a href="mailto:{{ user.email }}">{{ user.email }}</a></div>
+    </div>
+    {% endfor %}
+
+    <form name="add_user" method="POST" action="/index">
+        <label>First name</label>
+        <input name="first_name"/><br/>
+        <label>Last name</label>
+        <input name="last_name"/><br/>
+        <label>Email</label>
+        <input name="email"/><br/>
+        <label>Phone</label>
+        <input name="phone"/><br/>
+        <input type="submit" value="send"/>
+    </form>
+</div>
 </body>

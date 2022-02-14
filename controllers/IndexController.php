@@ -16,6 +16,11 @@ class IndexController
         );
     }
 
+    public function postIndex(): void
+    {
+        echo print_r($_POST);
+    }
+
     public static function getUsers(): array {
         $customersRepository = CustomersRepository::getInstance();
         return $customersRepository->findAll();
