@@ -20,13 +20,17 @@
                 <p class="font-weight-bold">{{title}}</p>
             </div>
         </div>
-        {% for user in users %}
-        <div class="row">
-            <div class="col-sm-2">{{ user.first_name }} {{ user.last_name }}</div>
-            <div class="col-sm-2"><a href="mailto:{{ user.email }}">{{ user.email }}</a></div>
-            <div class="col-sm-2">{{ user.phone }}</div>
-        </div>
-        {% endfor %}
-        <a href="/User">Add user</a>
+        <form name="add_user" method="POST" action="/index">
+            <label>First name</label>
+            <input name="first_name"/><br/>
+            <label>Last name</label>
+            <input name="last_name"/><br/>
+            <label>Email</label>
+            <input name="email"/><br/>
+            <label>Phone</label>
+            <input name="phone"/><br/>
+            <input type="submit" value="save"/>
+        </form>
+        <a href="/">Cancel</a>
     </div>
 </body>
