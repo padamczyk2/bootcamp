@@ -25,9 +25,6 @@ class IndexController
      */
     public function postIndex(array $data): void
     {
-    /***    echo "<pre>";
-        print_r($data);
-    ***/
         $customer = new Customer();
         $customer->setFirstName($data["first_name"]);
         $customer->setLastName($data["last_name"]);
