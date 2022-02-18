@@ -69,10 +69,11 @@ class CustomersRepository
     {
         $pdo = Database::getInstance();
 
-        $req = $pdo->prepare("INSERT INTO customers(first_name, last_name, email) VALUES(:first_name, :last_name, :email)");
+        $req = $pdo->prepare("INSERT INTO customers(first_name, last_name, email, phone) VALUES(:first_name, :last_name, :email, :phone)");
         $req->bindParam(":first_name", $customer->first_name);
         $req->bindParam(":last_name", $customer->last_name);
         $req->bindParam(":email", $customer->email);
+        $req->bindParam(":phone", $customer->phone);
         return $req->execute();
     }
 
