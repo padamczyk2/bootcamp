@@ -38,6 +38,8 @@ class IndexController
             $customer->setPhone($data["phone"]);
             CustomersRepository::getInstance()->createUser($customer);
             header('Location: /index');
+        } else {
+            header('Location: /index');
         }
     }
 
