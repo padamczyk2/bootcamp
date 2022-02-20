@@ -45,12 +45,13 @@ class CustomersRepository
     {
         $pdo = Database::getInstance();
 
-        $req = $pdo->prepare("SELECT first_name, last_name, email, phone FROM customers");
+        $req = $pdo->prepare("SELECT id, first_name, last_name, email, phone FROM customers");
         $req->execute();
         $res = $req->fetchAll();
         $customers = [];
         foreach ($res as $row) {
             $customer= new Customer();
+            $customer->id = $row['id'];
             $customer->first_name = $row['first_name'];
             $customer->last_name = $row['last_name'];
             $customer->email = $row['email'];
@@ -77,11 +78,13 @@ class CustomersRepository
         return $req->execute();
     }
 
-    public function deleteByEmail(string $email): void
+    /**
+     * @param  array  $users
+     */
+    public function deleteByIds(array $users): void
     {
         $pdo = Database::getInstance();
-        $req = $pdo->prepare("DELETE FROM customers WHERE email LIKE :email");
-        $req->bindParam(":email", $email);
+        $req = $pdo->prepare("DELETE FROM customers WHERE id IN ('".implode(",", $users)."')");
         $req->execute();
     }
 
