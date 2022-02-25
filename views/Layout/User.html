@@ -14,23 +14,51 @@
     <!-- BOOTSTRAP -->
 </head>
 <body>
-    <div class="container-fluid">
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-12">
+            <p class="font-weight-bold">Add user:</p>
+        </div>
+    </div>
+    <form name="add_user" method="POST" action="/index">
         <div class="row">
-            <div class="col-sm-12">
-                <p class="font-weight-bold">{{title}}</p>
+            <div class="col-sm-2">
+                <label>First name</label>
+            </div>
+            <div class="col-sm-2">
+                <input name="first_name"/>
             </div>
         </div>
-        <form name="add_user" method="POST" action="/index">
-            <label>First name</label>
-            <input name="first_name"/><br/>
-            <label>Last name</label>
-            <input name="last_name"/><br/>
-            <label>Email</label>
-            <input name="email"/><br/>
-            <label>Phone</label>
-            <input name="phone"/><br/>
-            <input type="submit" value="save"/>
-        </form>
-        <a href="/">Cancel</a>
-    </div>
+        <div class="row">
+            <div class="col-sm-2">
+                <label>Last name</label>
+            </div>
+            <div class="col-sm-2">
+                <input name="last_name"/>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-2">
+                <label>Email</label>
+            </div>
+            <div class="col-sm-2">
+                <input name="email"/>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-2">
+                <label>Phone</label>
+            </div>
+            <div class="col-sm-2">
+                <input name="phone"/>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-4">
+                <input type="submit" name="save" value="Save"/>
+                <input type="submit" name="cancel" value="Cancel"/>
+            </div>
+        </div>
+    </form>
+</div>
 </body>

@@ -5,7 +5,6 @@
     <meta content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
           name="viewport">
     <meta content="ie=edge" http-equiv="X-UA-Compatible">
-
     <!-- BOOTSTRAP -->
     <link href="/assets/css/bootstrap.min.css" rel="stylesheet">
     <script src="/assets/js/bootstrap.min.js"></script>
@@ -16,19 +15,21 @@
 </head>
 
 <body>
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-sm-12">
-                <p class="font-weight-bold">{{title}}</p>
-            </div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-12">
+            <p class="font-weight-bold">{{title}}</p>
         </div>
+    </div>
+    <form method="post" action="/index">
         {% for user in users %}
         <div class="row">
+            <div class="col-sm-1"><input type="checkbox" name="users[]" value="{{ user.id }}"/></div>
             <div class="col-sm-2">{{ user.first_name }} {{ user.last_name }}</div>
-            <div class="col-sm-2"><a href="mailto:{{ user.email }}">{{ user.email }}</a></div>
-            <div class="col-sm-2">{{ user.phone }}</div>
         </div>
         {% endfor %}
-        <a href="/User">Add user</a>
-    </div>
+        <input type="submit" name="add" value="Add"/>
+        <input type="submit" name="delete" value="Delete"/>
+    </form>
+</div>
 </body>
