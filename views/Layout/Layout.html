@@ -16,19 +16,19 @@
 <body>
 <div class="container-fluid">
     <div class="row">
-        <div class="col-sm-6 my-2 mx-2">
+        <div class="col-sm-12">
             <p class="font-weight-bold">{{title}}</p>
         </div>
     </div>
     <form method="post" action="/index">
-        <input type="submit" name="add" value="Add"/>
-        <input type="submit" name="delete" value="Delete"/>
         {% for user in users %}
         <div class="row">
-            <div class="col-sm-1 mt-2"><input type="checkbox" name="users[]" value="{{ user.id }}"/></div>
-            <div class="col-sm-2 mt-2 ">{{ user.first_name }} {{ user.last_name }}</div>
+            <div class="col-sm-1"><input type="checkbox" name="users[]" value="{{ user.id }}"/></div>
+            <div class="col-sm-2">{{ user.first_name }} {{ user.last_name }}</div>
         </div>
         {% endfor %}
+        <input type="submit" name="add" value="Add"/>
+        <input type="submit" name="delete" value="Delete"/>
     </form>
 </div>
 </body>
