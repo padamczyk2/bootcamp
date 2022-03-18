@@ -23,11 +23,11 @@
     <form method="post" action="/index">
         <input type="submit" name="add" value="Add"/>
         <input type="submit" name="delete" value="Delete"/>
-        <input type="submit" name="edit" value="Edit"/>
         {% for user in users %}
         <div class="row">
             <div class="col-sm-1 mt-2"><input type="checkbox" name="users[]" value="{{ user.id }}"/></div>
             <div class="col-sm-2 mt-2 ">{{ user.first_name }} {{ user.last_name }}</div>
+            <a href="/edit?id={{ user.id }}"><img src="/assets/img/edit_icon.png"></a>
         </div>
         {% endfor %}
     </form>

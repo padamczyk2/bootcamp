@@ -38,6 +38,21 @@ class CustomersRepository
         return $res;
     }
 
+    public function findById(int $id): User
+    {
+        $pdo = Database::getInstance();
+
+        $req = $pdo->prepare("SELECT * FROM customers WHERE id = :id");
+        $req->bindParam(":id", $id);
+        $req->execute();
+        $res = $req->fetchObject(User::class);
+        if (!$res) {
+            throw new Exception("Utilisateur introuvable", 404);
+        }
+        return $res;
+    }
+
+
     /**
      * @return array
      */
@@ -86,6 +101,23 @@ class CustomersRepository
         $pdo = Database::getInstance();
         $req = $pdo->prepare("DELETE FROM customers WHERE id IN ('".implode(",", $users)."')");
         $req->execute();
+    }
+
+    /**
+     * @param  \Models\Customer  $customer
+     *
+     * @return bool
+     */
+    public function UpdataUser(Customer $customer): bool
+    {
+        $pdo = Database::getInstance();
+
+        $req = $pdo->prepare("UPDATE customers SET first_name = :first_name, last_name = :last_name, email = :email, phone = :phone WHERE id = :id");
+        $req->bindParam(":first_name", $customer->first_name);
+        $req->bindParam(":last_name", $customer->last_name);
+        $req->bindParam(":email", $customer->email);
+        $req->bindParam(":phone", $customer->phone);
+        return $req->execute();
     }
 
 }
