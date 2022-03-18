@@ -27,7 +27,14 @@
         <div class="row">
             <div class="col-sm-1 mt-2"><input type="checkbox" name="users[]" value="{{ user.id }}"/></div>
             <div class="col-sm-2 mt-2 ">{{ user.first_name }} {{ user.last_name }}</div>
-            <a href="/edit?id={{ user.id }}"><img src="/assets/img/edit_icon.png"></a>
+            <div class="col-sm-2 mt-2 ">
+                <form method="post" action="/edit">
+                    <input type="hidden" name="user_id" value="{{ user.id }}"/>
+                    <button type="submit" name="user_id"/>
+                    <img src="/assets/img/edit_icon.png">
+                    </button>
+                </form>
+            </div>
         </div>
         {% endfor %}
     </form>
